@@ -7,12 +7,9 @@ import { ChatBubble, TypingIndicator } from "./chat-bubble";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
-  DialogTrigger,
-  DialogClose
+  DialogTrigger
 } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
 
 interface Message {
   text: string;
@@ -44,7 +41,7 @@ export function ChatContainer() {
         inputRef.current?.focus();
       }, 100);
     }
-  }, [open]);
+  }, [open, messages.length]);
 
   // 새 메시지가 추가될 때마다 스크롤 맨 아래로
   useEffect(() => {
