@@ -2,100 +2,45 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <header className="w-full max-w-3xl">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2">군입대 정보 도우미</h1>
+        <p className="text-center text-gray-500">오른쪽 하단의 채팅 아이콘을 클릭하여 질문하세요</p>
+      </header>
+      
+      <main className="flex flex-col gap-8 items-center w-full max-w-3xl">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+          <InfoCard 
+            title="신체검사 등급" 
+            description="군 신체검사는 1~7급으로 구분됩니다. 1~2급은 현역, 3급은 보충역, 4급은 전시근로역, 5급은 전시근로역(2차), 6급은 면제, 7급은 재검 대상입니다." 
+          />
+          <InfoCard 
+            title="군 종류 및 복무기간" 
+            description="육군(21개월), 해군(23개월), 공군(24개월), 해병대(21개월)로 구분됩니다. 각 군별로 복무기간과 특성이 다릅니다." 
+          />
+          <InfoCard 
+            title="사회복무요원" 
+            description="신체검사 3급 판정을 받은 사람이 복무하는 보충역입니다. 복무기간은 21개월이며, 행정기관, 학교, 병원 등에서 근무합니다." 
+          />
+          <InfoCard 
+            title="입대 시기/일정" 
+            description="입대 시기는 본인이 원하는 시기에 지원하거나, 병무청의 병역 판정검사 이후 통지에 따라 결정됩니다." 
+          />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      
+      <footer className="w-full max-w-3xl text-center p-4 text-gray-500 text-sm">
+        © 2023 군입대 정보 도우미 | 이 사이트는 정보 제공을 목적으로 합니다.
       </footer>
+    </div>
+  );
+}
+
+function InfoCard({ title, description }: { title: string; description: string }) {
+  return (
+    <div className="border rounded-lg p-6 hover:shadow-md transition-shadow">
+      <h2 className="text-xl font-semibold mb-3">{title}</h2>
+      <p className="text-gray-600">{description}</p>
     </div>
   );
 }
